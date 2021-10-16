@@ -6,8 +6,6 @@
 
 # IMPORT MODULES
 import time
-from tkinter.constants import FALSE
-
 
 # USER INPUT: Beginner, Advanced or Pro?
 input_missing = True
