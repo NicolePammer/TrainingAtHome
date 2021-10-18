@@ -60,6 +60,7 @@ class Exercise_Hold:
         Class for creating exercise objects in which the movement has to be hold for several seconds
 
         Parameters:
+        ----------------
             ex_name (str): Name of the exercise
             holdtime (int): How many seconds the exercise-position has to be hold
             pause (int): How many seconds pause is there between the repetitions
@@ -79,6 +80,10 @@ class Exercise_Hold:
 
 
     def printouts(self):
+        """
+        Gives a printout to the user of the whole exercise with countdowns inbetween.
+        """
+        
         print("\nStart of Exercise {}.".format(self.ex_name))
         time.sleep(5)
         print("\nExplanation: {}".format(self.explanation))
@@ -124,6 +129,7 @@ class Exercise_Reps:
         Class for creating exercise objects in which the movement has to be repeated
 
         Parameters:
+        --------------
             ex_name (str): Name of the exercise
             reps (int): How many reps are there
             part1 (str): First part of the movement
@@ -191,9 +197,11 @@ def create_ex_03(status: int):
     Creates exercise number 03 depending on, which status (level) the user picked
 
     Parameter:
+    -----------
         status (int): 1 = beginner, 2 = advanced, 3 = pro
 
     Returns:
+    ---------
         Instance of Class "Exercise_Hold"
     """
 
@@ -218,9 +226,11 @@ def create_ex_04a(status: int):
     Creates exercise number 04a depending on, which status (level) the user picked
 
     Parameter:
+    -----------
         status (int): 1 = beginner, 2 = advanced, 3 = pro
 
     Returns:
+    ---------
         Instance of Class "Exercise_Reps"
     """
 
