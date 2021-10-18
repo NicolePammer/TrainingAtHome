@@ -38,7 +38,7 @@ time.sleep(6)
 
 
 # DEFINITION OF COUNTDOWN
-def countdown(seconds):
+def countdown(seconds: int):
     temp = seconds
     while temp > 0:
         print(temp)
@@ -47,7 +47,28 @@ def countdown(seconds):
 
 #CLASSES
 class Exercise_Hold:
-    def __init__(self, ex_name="", holdtime=0, pause=0, repetition=0, explanation="", advice="", action=""):
+    def __init__(self, \
+        ex_name: str = "", \
+        holdtime: int = 0, \
+        pause: int = 0, \
+        repetition: int = 0, \
+        explanation: str = "", \
+        advice: str = "", \
+        action: str =""):
+
+        """
+        Class for creating exercise objects in which the movement has to be hold for several seconds
+
+        Parameters:
+            ex_name (str): Name of the exercise
+            holdtime (int): How many seconds the exercise-position has to be hold
+            pause (int): How many seconds pause is there between the repetitions
+            repetition (int): How many repetitions
+            explanation (str): Short description of the exercise
+            advice (str): What the user should focus on during the exercise
+            action (str): What movement the user must perform
+        """
+
         self.ex_name = ex_name
         self.holdtime = holdtime
         self.pause = pause
@@ -88,7 +109,31 @@ class Exercise_Hold:
         print("---------------------------------------")
 
 class Exercise_Reps:
-    def __init__(self, ex_name, reps, part1, part2, pause, repetition, explanation, advice, action):
+    def __init__(self, 
+        ex_name:str = "",
+        reps: int = 0,
+        part1: str = "", 
+        part2: str = "",
+        pause: int = 0,
+        repetition: int = 0,
+        explanation: str = "",
+        advice: str = "",
+        action: str = ""):
+
+        """
+        Class for creating exercise objects in which the movement has to be repeated
+
+        Parameters:
+            ex_name (str): Name of the exercise
+            reps (int): How many reps are there
+            part1 (str): First part of the movement
+            part2 (str): Second part of the movement
+            repetition (int): How many repetitions
+            explanation (str): Short description of the exercise
+            advice (str): What the user should focus on during the exercise
+            action (str): What movement the user must perform first
+        """
+
         self.ex_name = ex_name
         self.reps = reps
         self.part1 = part1
@@ -101,6 +146,10 @@ class Exercise_Reps:
 
 
     def printouts(self):
+        """
+        Gives a printout to the user of the whole exercise with countdowns inbetween.
+        """
+
         print("\nStart of Exercise {}.".format(self.ex_name))
         time.sleep(5)
         print("\nExplanation: {}".format(self.explanation))
@@ -137,12 +186,22 @@ class Exercise_Reps:
         print("---------------------------------------")
 
 # DEFINITION OF EXERCISES
-def create_ex_03(status):
-    if status == 1:
+def create_ex_03(status: int):
+    """
+    Creates exercise number 03 depending on, which status (level) the user picked
+
+    Parameter:
+        status (int): 1 = beginner, 2 = advanced, 3 = pro
+
+    Returns:
+        Instance of Class "Exercise_Hold"
+    """
+
+    if status == 1:         # beginner
         holdtime = 20
         pause = 10
         repetition = 2
-    else:
+    else:                   # advanced or pro
         holdtime = 30
         pause = 10
         repetition = 2
@@ -154,7 +213,17 @@ def create_ex_03(status):
 
     return Exercise_Hold(ex_name, holdtime, pause, repetition,explanation, advice, action)
 
-def create_ex_04a(status):
+def create_ex_04a(status: int):
+    """
+    Creates exercise number 04a depending on, which status (level) the user picked
+
+    Parameter:
+        status (int): 1 = beginner, 2 = advanced, 3 = pro
+
+    Returns:
+        Instance of Class "Exercise_Reps"
+    """
+
     if status == 1:
         reps = 2
         pause = 10
